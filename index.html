@@ -496,7 +496,7 @@
           </svg>
           <span id="copy-btn-text" class="btn-text">로딩 중...</span>
         </button>
-        <p class="copy-instruction">위 버튼을 탭하면 FC26 PlayStyle Evo Helper 유저스크립트 전체 내용이 클립보드에 복사됩니다.</p>
+        <p class="copy-instruction">위 버튼을 탭하면 FC26 PlayStyle Evo Helper 유저스크립트 <strong>설치 URL</strong>이 클립보드에 복사됩니다.</p>
       </div>
 
       <!-- Script Info Metadata -->
@@ -555,9 +555,9 @@
         <div class="guide-content">
           <ol class="guide-steps">
             <li>App Store에서 <strong>Userscripts</strong> 확장 앱(무료)을 다운로드 및 활성화합니다.</li>
-            <li>Userscripts 설정에서 스크립트를 저장할 디렉토리를 지정합니다.</li>
-            <li>본 웹앱에서 <strong>[유저스크립트 복사]</strong> 버튼을 누릅니다.</li>
-            <li>지정한 스크립트 디렉토리 또는 Userscripts 에디터에서 새 스크립트 파일을 만들고(예: <code>fc26.user.js</code>) 복사한 내용을 붙여넣어 저장합니다.</li>
+            <li>본 웹앱에서 <strong>[설치 URL 복사]</strong> 버튼을 누릅니다.</li>
+            <li>사파리에서 Userscripts 확장 프로그램 아이콘을 누르고 <strong>"+"</strong> -> <strong>"Install from URL"</strong>을 선택합니다.</li>
+            <li>복사한 URL을 붙여넣고 확인을 누르면 설치 확인 창이 나타납니다. <strong>"Install"</strong>을 눌러 완료합니다.</li>
             <li>사파리에서 EA FC 26 웹앱에 접속하면 자동으로 활성화됩니다.</li>
           </ol>
         </div>
@@ -572,8 +572,9 @@
           <ol class="guide-steps">
             <li>App Store에서 Chrome/Firefox 확장을 지원하는 <strong>Orion Browser</strong>를 설치합니다.</li>
             <li>Orion 브라우저 설정 -> Extensions -> Firefox / Chrome 웹스토어에서 <strong>Tampermonkey</strong>를 설치합니다.</li>
-            <li>본 웹앱에서 스크립트를 복사합니다.</li>
-            <li>Orion 내의 Tampermonkey 아이콘 -> <strong>대시보드 -> 새 스크립트 추가(+)</strong>를 누르고 복사한 내용을 덮어씌워 저장합니다.</li>
+            <li>본 웹앱에서 <strong>[설치 URL 복사]</strong> 버튼을 누릅니다.</li>
+            <li>새 탭을 열고 복사한 URL을 주소창에 붙여넣어 접속합니다.</li>
+            <li>Tampermonkey 설치 페이지가 열리면 <strong>"설치 (Install)"</strong>를 누릅니다.</li>
           </ol>
         </div>
       </div>
@@ -587,8 +588,9 @@
           <ol class="guide-steps">
             <li>Google Play Store에서 <strong>Kiwi Browser</strong>를 설치합니다.</li>
             <li>Chrome 웹스토어에 접속하여 <strong>Tampermonkey</strong> 확장 프로그램을 추가합니다.</li>
-            <li>본 웹앱에서 스크립트를 복사합니다.</li>
-            <li>Kiwi 브라우저 메뉴 -> Tampermonkey 대시보드 -> <strong>새 스크립트 추가(+)</strong> 버튼을 누르고 전체 붙여넣기 한 뒤 저장(Ctrl+S 또는 디스크 아이콘)합니다.</li>
+            <li>본 웹앱에서 <strong>[설치 URL 복사]</strong> 버튼을 누릅니다.</li>
+            <li>새 탭을 열고 복사한 URL을 주소창에 붙여넣어 접속합니다.</li>
+            <li>Tampermonkey 설치 페이지가 자동으로 활성화되면 <strong>"설치 (Install)"</strong>를 누릅니다.</li>
           </ol>
         </div>
       </div>
@@ -604,7 +606,7 @@
       <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
       <polyline points="22 4 12 14.01 9 11.01"/>
     </svg>
-    클립보드에 복사되었습니다!
+    설치 URL이 복사되었습니다!
   </div>
 
   <footer>
@@ -644,7 +646,7 @@
 
         // Enable button
         btnCopy.removeAttribute('disabled');
-        btnText.textContent = '유저스크립트 복사';
+        btnText.textContent = '설치 URL 복사';
 
         // Server connection state: success
         statusIndicator.className = 'server-status connected';
@@ -680,16 +682,16 @@
 
     // Clipboard Copy logic
     btnCopy.addEventListener('click', async () => {
-      if (!scriptContent) return;
+      const scriptUrl = window.location.origin + '/fc26-playstyle-evo-helper.user.js';
 
       try {
         // Try modern clipboard API
         if (navigator.clipboard && window.isSecureContext) {
-          await navigator.clipboard.writeText(scriptContent);
+          await navigator.clipboard.writeText(scriptUrl);
         } else {
           // Fallback for non-https local network environments
           const textarea = document.getElementById('hidden-textarea');
-          textarea.value = scriptContent;
+          textarea.value = scriptUrl;
           textarea.select();
           textarea.setSelectionRange(0, 99999); // For mobile devices
           document.execCommand('copy');
@@ -717,7 +719,7 @@
       // Reset UI after 2.5 seconds
       setTimeout(() => {
         btnCopy.classList.remove('copied');
-        btnText.textContent = '유저스크립트 복사';
+        btnText.textContent = '설치 URL 복사';
         iconCopy.style.display = 'block';
         iconCheck.style.display = 'none';
         toast.classList.remove('show');

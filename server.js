@@ -110,6 +110,23 @@ const server = http.createServer((req, res) => {
     return;
   }
   
+  // Serve the userscript file directly
+  if (url.pathname === '/' + SCRIPT_NAME) {
+    fs.readFile(SCRIPT_PATH, 'utf8', (err, data) => {
+      if (err) {
+        res.writeHead(500, { 'Content-Type': 'text/plain' });
+        res.end('Error loading script: ' + err.message);
+        return;
+      }
+      res.writeHead(200, { 
+        'Content-Type': 'application/javascript; charset=utf-8',
+        'Access-Control-Allow-Origin': '*'
+      });
+      res.end(data);
+    });
+    return;
+  }
+  
   // Simple fallback for other requests (404)
   res.writeHead(404, { 'Content-Type': 'text/plain' });
   res.end('Not Found');
