@@ -496,7 +496,7 @@
           </svg>
           <span id="copy-btn-text" class="btn-text">로딩 중...</span>
         </button>
-        <p class="copy-instruction">위 버튼을 탭하면 FC26 PlayStyle Evo Helper 유저스크립트 <strong>설치 URL</strong>이 클립보드에 복사됩니다.</p>
+        <p class="copy-instruction">위 버튼을 탭하면 FC26 PlayStyle Evo Helper 유저스크립트 <strong>코드 전체</strong>가 클립보드에 복사됩니다.</p>
       </div>
 
       <!-- Script Info Metadata -->
@@ -519,78 +519,23 @@
       </div>
     </section>
 
-    <!-- QR Code Section (Desktop only helper) -->
-    <section id="qr-section" class="card qr-card desktop-only" style="display: none;">
-      <div class="qr-title">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect width="5" height="5" x="3" y="3" rx="1"/>
-          <rect width="5" height="5" x="16" y="3" rx="1"/>
-          <rect width="5" height="5" x="3" y="16" rx="1"/>
-          <path d="M21 16V21H16"/>
-          <path d="M21 16H16V21"/>
-          <path d="M9 9h.01"/>
-          <path d="M15 9h.01"/>
-          <path d="M9 15h.01"/>
-        </svg>
-        모바일에서 열기 (QR 코드)
-      </div>
-      <div class="qr-container">
-        <canvas id="qr-canvas"></canvas>
-      </div>
-      <p class="copy-instruction" style="font-size: 0.8rem;">PC와 스마트폰이 같은 와이파이에 연결되어 있어야 합니다.</p>
-      <div id="mobile-url-list" style="display: flex; flex-direction: column; gap: 0.5rem; width: 100%;">
-        <!-- Will be filled dynamically -->
-      </div>
-    </section>
-
     <!-- How to Install Guide Accordion -->
     <section class="card">
-      <div class="accordion-title">모바일 설치 방법</div>
+      <div class="accordion-title">설치 및 적용 방법</div>
       
-      <div class="guide-item">
+      <div class="guide-item active">
         <div class="guide-header" onclick="toggleGuide(this)">
-          <span>iOS (아이폰 / 사파리)</span>
+          <span>PC / 모바일 공통 적용 방법</span>
           <svg class="guide-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
         </div>
         <div class="guide-content">
           <ol class="guide-steps">
-            <li>App Store에서 <strong>Userscripts</strong> 확장 앱(무료)을 다운로드 및 활성화합니다.</li>
-            <li>본 웹앱에서 <strong>[설치 URL 복사]</strong> 버튼을 누릅니다.</li>
-            <li>사파리에서 Userscripts 확장 프로그램 아이콘을 누르고 <strong>"+"</strong> -> <strong>"Install from URL"</strong>을 선택합니다.</li>
-            <li>복사한 URL을 붙여넣고 확인을 누르면 설치 확인 창이 나타납니다. <strong>"Install"</strong>을 눌러 완료합니다.</li>
-            <li>사파리에서 EA FC 26 웹앱에 접속하면 자동으로 활성화됩니다.</li>
-          </ol>
-        </div>
-      </div>
-
-      <div class="guide-item">
-        <div class="guide-header" onclick="toggleGuide(this)">
-          <span>iOS (오리온 브라우저)</span>
-          <svg class="guide-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-        </div>
-        <div class="guide-content">
-          <ol class="guide-steps">
-            <li>App Store에서 Chrome/Firefox 확장을 지원하는 <strong>Orion Browser</strong>를 설치합니다.</li>
-            <li>Orion 브라우저 설정 -> Extensions -> Firefox / Chrome 웹스토어에서 <strong>Tampermonkey</strong>를 설치합니다.</li>
-            <li>본 웹앱에서 <strong>[설치 URL 복사]</strong> 버튼을 누릅니다.</li>
-            <li>새 탭을 열고 복사한 URL을 주소창에 붙여넣어 접속합니다.</li>
-            <li>Tampermonkey 설치 페이지가 열리면 <strong>"설치 (Install)"</strong>를 누릅니다.</li>
-          </ol>
-        </div>
-      </div>
-
-      <div class="guide-item">
-        <div class="guide-header" onclick="toggleGuide(this)">
-          <span>안드로이드 (키위 브라우저)</span>
-          <svg class="guide-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-        </div>
-        <div class="guide-content">
-          <ol class="guide-steps">
-            <li>Google Play Store에서 <strong>Kiwi Browser</strong>를 설치합니다.</li>
-            <li>Chrome 웹스토어에 접속하여 <strong>Tampermonkey</strong> 확장 프로그램을 추가합니다.</li>
-            <li>본 웹앱에서 <strong>[설치 URL 복사]</strong> 버튼을 누릅니다.</li>
-            <li>새 탭을 열고 복사한 URL을 주소창에 붙여넣어 접속합니다.</li>
-            <li>Tampermonkey 설치 페이지가 자동으로 활성화되면 <strong>"설치 (Install)"</strong>를 누릅니다.</li>
+            <li>Tampermonkey, Violentmonkey, 혹은 Userscripts 확장 프로그램을 설치합니다.</li>
+            <li>본 페이지 상단의 <strong>[코드 복사]</strong> 버튼을 탭하여 유저스크립트 코드를 복사합니다.</li>
+            <li>확장 프로그램의 대시보드에서 <strong>새 스크립트 만들기 (Create a new script)</strong>를 선택합니다.</li>
+            <li>에디터에 기본으로 작성된 텍스트를 모두 지우고, 복사한 코드를 <strong>붙여넣기 (Paste)</strong> 합니다.</li>
+            <li>스크립트를 <strong>저장 (Save)</strong>합니다. (단축키 Ctrl + S 또는 Cmd + S)</li>
+            <li>EA FC 26 웹앱에 접속하면 자동으로 보조 도구가 활성화됩니다.</li>
           </ol>
         </div>
       </div>
@@ -606,7 +551,7 @@
       <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
       <polyline points="22 4 12 14.01 9 11.01"/>
     </svg>
-    설치 URL이 복사되었습니다!
+    유저스크립트 코드가 복사되었습니다!
   </div>
 
   <footer>
@@ -622,45 +567,87 @@
     const statusIndicator = document.getElementById('status-indicator');
     const statusText = document.getElementById('status-text');
 
-    // Fetch script metadata and content from the API
+    // Parses the Userscript block from the script content
+    function parseUserscript(content) {
+      const lines = content.split(/\r?\n/);
+      const metadata = {};
+      let inMeta = false;
+      
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (trimmed === '// ==UserScript==') {
+          inMeta = true;
+          continue;
+        }
+        if (trimmed === '// ==/UserScript==') {
+          inMeta = false;
+          break;
+        }
+        if (inMeta && trimmed.startsWith('//')) {
+          const match = trimmed.match(/^\/\/\s*@(\S+)\s+(.+)$/);
+          if (match) {
+            const key = match[1];
+            const val = match[2].trim();
+            if (metadata[key]) {
+              if (Array.isArray(metadata[key])) {
+                metadata[key].push(val);
+              } else {
+                metadata[key] = [metadata[key], val];
+              }
+            } else {
+              metadata[key] = val;
+            }
+          }
+        }
+      }
+      return metadata;
+    }
+
+    // Fetch script metadata and content directly
     async function loadScriptData() {
       try {
-        const response = await fetch('/api/script');
-        if (!response.ok) throw new Error('API 응답 실패');
+        const response = await fetch('./fc26-playstyle-evo-helper.user.js');
+        if (!response.ok) throw new Error('스크립트 파일을 찾을 수 없습니다.');
         
-        const data = await response.json();
-        if (!data.success) throw new Error(data.error || '스크립트 로드 에러');
+        const content = await response.text();
+        scriptContent = content;
+        
+        const metadata = parseUserscript(content);
+        
+        // Calculate size in bytes
+        const sizeBytes = new TextEncoder().encode(content).length;
+        
+        // Try to get Last-Modified from headers
+        let lastModifiedStr = response.headers.get('last-modified');
+        let modifiedDisplay = '--';
+        if (lastModifiedStr) {
+          modifiedDisplay = new Date(lastModifiedStr).toLocaleString('ko-KR');
+        } else {
+          modifiedDisplay = '실시간 반영됨 (캐시 상태)';
+        }
 
-        scriptContent = data.content;
-        
         // Update stats
-        document.getElementById('meta-version').textContent = data.metadata.version || '알 수 없음';
-        document.getElementById('meta-size').textContent = (data.sizeBytes / 1024).toFixed(1) + ' KB';
-        
-        // Format last modified date
-        const modifiedDate = new Date(data.lastModified);
-        document.getElementById('meta-modified').textContent = modifiedDate.toLocaleString('ko-KR');
+        document.getElementById('meta-version').textContent = metadata.version || '알 수 없음';
+        document.getElementById('meta-size').textContent = (sizeBytes / 1024).toFixed(1) + ' KB';
+        document.getElementById('meta-modified').textContent = modifiedDisplay;
         
         // Description
-        document.getElementById('meta-desc').textContent = data.metadata.description || 'FC26 진화 보조 도구 스크립트입니다.';
+        document.getElementById('meta-desc').textContent = metadata.description || 'FC26 진화 보조 도구 스크립트입니다.';
 
         // Enable button
         btnCopy.removeAttribute('disabled');
-        btnText.textContent = '설치 URL 복사';
+        btnText.textContent = '코드 복사';
 
-        // Server connection state: success
+        // Status state: success
         statusIndicator.className = 'server-status connected';
-        statusText.textContent = 'PC 서버 연결됨';
-
-        // Setup QR Code if there are IP addresses and not on mobile
-        setupQrCode(data.ips, data.port);
+        statusText.textContent = '스크립트 로드 완료';
 
       } catch (error) {
         console.error('Error fetching script:', error);
         statusIndicator.className = 'server-status error';
-        statusText.textContent = '연결 실패: ' + error.message;
+        statusText.textContent = '로드 실패: ' + error.message;
         btnText.textContent = '로드 실패';
-        document.getElementById('meta-desc').textContent = '서버에 접속할 수 없거나 스크립트 파일이 존재하지 않습니다. node server.js가 켜져있는지 확인하세요.';
+        document.getElementById('meta-desc').textContent = '스크립트 파일을 불러오지 못했습니다. 경로에 fc26-playstyle-evo-helper.user.js 파일이 존재하는지 또는 서버가 켜져 있는지 확인하세요. (로컬 파일(file://)로 바로 열었을 경우 브라우저 보안 정책상 불러오기가 차단될 수 있습니다.)';
       }
     }
 
@@ -682,16 +669,19 @@
 
     // Clipboard Copy logic
     btnCopy.addEventListener('click', async () => {
-      const scriptUrl = window.location.origin + '/fc26-playstyle-evo-helper.user.js';
+      if (!scriptContent) {
+        alert('복사할 스크립트 코드가 로드되지 않았습니다.');
+        return;
+      }
 
       try {
         // Try modern clipboard API
         if (navigator.clipboard && window.isSecureContext) {
-          await navigator.clipboard.writeText(scriptUrl);
+          await navigator.clipboard.writeText(scriptContent);
         } else {
           // Fallback for non-https local network environments
           const textarea = document.getElementById('hidden-textarea');
-          textarea.value = scriptUrl;
+          textarea.value = scriptContent;
           textarea.select();
           textarea.setSelectionRange(0, 99999); // For mobile devices
           document.execCommand('copy');
@@ -719,60 +709,11 @@
       // Reset UI after 2.5 seconds
       setTimeout(() => {
         btnCopy.classList.remove('copied');
-        btnText.textContent = '설치 URL 복사';
+        btnText.textContent = '코드 복사';
         iconCopy.style.display = 'block';
         iconCheck.style.display = 'none';
         toast.classList.remove('show');
       }, 2500);
-    }
-
-    // Generate QR Code for mobile connection
-    function setupQrCode(ips, port) {
-      const qrSection = document.getElementById('qr-section');
-      const urlList = document.getElementById('mobile-url-list');
-      urlList.innerHTML = ''; // Clear previous
-
-      // If user is accessing via a mobile device already, don't show QR code
-      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      
-      // We also check if we are on localhost to decide if QR code is useful
-      const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-
-      if (!isMobile && isLocalhost && ips.length > 0) {
-        // Filter out localhost from the IPs list for QR generation
-        const externalIps = ips.filter(ip => ip !== '127.0.0.1');
-        
-        if (externalIps.length > 0) {
-          qrSection.style.display = 'flex';
-          
-          // Generate QR code for the first external IP
-          const mobileUrl = `http://${externalIps[0]}:${port}`;
-          
-          new QRious({
-            element: document.getElementById('qr-canvas'),
-            value: mobileUrl,
-            size: 160,
-            background: 'white',
-            foreground: '#0f172a',
-            level: 'H'
-          });
-
-          // Add clickable/copyable link tags in the card
-          externalIps.forEach(ip => {
-            const url = `http://${ip}:${port}`;
-            
-            const linkDiv = document.createElement('div');
-            linkDiv.className = 'qr-address';
-            linkDiv.textContent = url;
-            linkDiv.title = '클릭하여 복사';
-            linkDiv.addEventListener('click', () => {
-              navigator.clipboard.writeText(url);
-              alert('모바일 접속 주소가 복사되었습니다: ' + url);
-            });
-            urlList.appendChild(linkDiv);
-          });
-        }
-      }
     }
 
     // Init
